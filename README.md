@@ -1,4 +1,5 @@
-# Martin Saveski's Website
+# Based on Martin Saveski's Website
+If you just want to use the standard internet adress (created from github) and not an individual adress, delete the .html files with redirect in the name.
 
 ## Updates guide
 Change one of the files in `_data`, unless you are changing the look of the website.
