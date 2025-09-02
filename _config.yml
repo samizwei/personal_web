@@ -2,7 +2,7 @@ source:      .
 destination: ./_site
 includes:    ./_includes
 #baseurl: /msaveski
-baseurl: /www_personal
+baseurl: /samizwei/www_personal
 
 collections:
   projects:
