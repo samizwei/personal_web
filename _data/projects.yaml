@@ -12,6 +12,10 @@ projects:
     # url: "projects/2016_network-ab-testing.html"
   - title: "Semesterthesis"
     subtitle: "Investigating the Impact of Randomization"
+
+
+  - title: "Script"
+    subtitle: "Latex Summary of MMP1 course"
     # thumbnail: "assets/projects/2016_network-ab/thumbnail.jpg"
     # url: "projects/2016_network-ab-testing.html"
 #   - title: "Detecting Network Effects"
