@@ -4,6 +4,7 @@ projects:
     subtitle: "Randomizing Over Randomized Experiments"
     # thumbnail: "assets/projects/2016_network-ab/thumbnail.jpg"
     # url: "projects/2016_network-ab-testing.html"
+    paper_pdf: "/assets/publications/2025_cn_causal_effects/paper.pdf"
     selected: y
 
   - title: "Semesterthesis"
