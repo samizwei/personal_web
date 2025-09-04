@@ -1,24 +1,30 @@
 projects:
 
   - title: "Masterthesis"
-    subtitle: "Randomizing Over Randomized Experiments"
+    subtitle: "Study of Anisotropic Antiferromagnets on a Triangular Lattice through Neural QuantumStates"
     thumbnail: "assets/projects/MasterThesis/masterthesis_teaser.png"
     # url: "projects/2016_network-ab-testing.html"
     project_pdf: "/assets/projects/MasterThesis/Thesis.pdf"
     selected: y
 
   - title: "Semesterthesis"
-    subtitle: "Investigating the Impact of Randomization"
-    # thumbnail: "assets/projects/2016_network-ab/thumbnail.jpg"
+    subtitle: "Numerical Investigation of the Upper Critical Field of a BCS Superconductor"
+    thumbnail: "assets/projects/SC_Semesterproject/SC_Teaser.png"
+    project_pdf: "/assets/projects/SC_Semesterproject/SC_Report.pdf"
+    selected: y
+    
     # url: "projects/2016_network-ab-testing.html"
-  - title: "Semesterthesis"
-    subtitle: "Investigating the Impact of Randomization"
+  # - title: "Semesterthesis"
+  #   subtitle: "Investigating the Impact of Randomization"
 
 
   - title: "Script"
     subtitle: "Latex Summary of MMP1 course"
-    # thumbnail: "assets/projects/2016_network-ab/thumbnail.jpg"
+    thumbnail: "assets/projects/MMP1_Script/trex.png"
+    selected: y
     # url: "projects/2016_network-ab-testing.html"
+
+
 #   - title: "Detecting Network Effects"
 #     subtitle: "Randomizing Over Randomized Experiments"
 #     thumbnail: "assets/projects/2016_network-ab/thumbnail.jpg"
