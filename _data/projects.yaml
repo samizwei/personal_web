@@ -2,7 +2,7 @@ projects:
 
   - title: "Masterthesis"
     subtitle: "Randomizing Over Randomized Experiments"
-    # thumbnail: "assets/projects/2016_network-ab/thumbnail.jpg"
+    thumbnail: "assets/projects/MasterThesis/masterthesis_teaser.png"
     # url: "projects/2016_network-ab-testing.html"
     paper_pdf: "/assets/publications/2025_cn_causal_effects/paper.pdf"
     selected: y
