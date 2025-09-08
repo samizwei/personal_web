@@ -11,7 +11,7 @@ projects:
     subtitle: "Numerical Investigation of the Upper Critical Field of a BCS Superconductor"
     thumbnail: "assets/projects/SC_Semesterproject/SC_Teaser.png"
     project_pdf: "/assets/projects/SC_Semesterproject/SC_Report.pdf"
-    selected: y
+    selected: n
     
     # url: "projects/2016_network-ab-testing.html"
   # - title: "Semesterthesis"
@@ -21,7 +21,7 @@ projects:
   - title: "Script"
     subtitle: "Latex Summary of MMP1 course (not finished)"
     thumbnail: "assets/projects/MMP1_Script/trex.png"
-    selected: y
+    selected: n
     # url: "projects/2016_network-ab-testing.html"
 
 
