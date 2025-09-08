@@ -187,8 +187,7 @@ title: Home
     </div>
 
     <div class="tab-pane" id="projects-all">
-      <!-- {% assign all_projects = site.data.projects.projects | where_exp:"item","item.selected != 'y'" %}
-      {% for project in all_projects %} -->
+
       {% for project in site.data.projects.projects %}
         {% assign index_modulo = forloop.index0 | modulo:3 %}
         {% if index_modulo == 0 %}
