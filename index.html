@@ -187,7 +187,6 @@ title: Home
     </div>
 
     <div class="tab-pane" id="projects-all">
-
       {% for project in site.data.projects.projects %}
         {% assign index_modulo = forloop.index0 | modulo:3 %}
         {% if index_modulo == 0 %}
@@ -214,14 +213,16 @@ title: Home
 
             </div>
           </div>
-        <!-- here we also adapt the code a bit try again -->
+
         {% if index_modulo == 2 %}
           </div>
         {% endif %}
       {% endfor %}
     </div>
   </div>
+
 </div>
+
 
 <!-- ========== RESUME ========== -->
 <div class="docs-section" id="resume">
