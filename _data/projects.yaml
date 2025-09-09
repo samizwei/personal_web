@@ -21,7 +21,8 @@ projects:
   - title: "Script"
     subtitle: "Latex Summary of MMP1 course (not finished)"
     thumbnail: "assets/projects/MMP1_Script/trex.png"
-    project_pdf: "/assets/projects/MMP1_Script/MMP_Script.pdf"
+    # project_pdf: "/assets/projects/MMP1_Script/MMP_Script.pdf"
+    project_pdf: "assets/projects/MMP1_Script/MMP_script.pdf"
     selected: n
     # url: "projects/2016_network-ab-testing.html"
 
