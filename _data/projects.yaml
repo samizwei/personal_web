@@ -13,11 +13,7 @@ projects:
     project_pdf: "/assets/projects/SC_Semesterproject/SC_Report.pdf"
     selected: n
     
-    # url: "projects/2016_network-ab-testing.html"
-  # - title: "Semesterthesis"
-  #   subtitle: "Investigating the Impact of Randomization"
-
-
+    
   - title: "Script"
     subtitle: "Latex Summary of MMP1 course (not finished)"
     thumbnail: "assets/projects/MMP1_Script/trex.png"
