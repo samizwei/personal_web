@@ -193,7 +193,7 @@ title: Home
       
       {% assign other_projects = site.data.projects.projects | where: "selected", "n" %}
       {% for project in other_projects %}
-        {% assign index_modulo = forloop.index0 | modulo:3 %}
+        {% assign index_modulo = forloop.index0 | modulo:2 %}
         {% if index_modulo == 0 %}
           <div class="row">
         {% endif %}
