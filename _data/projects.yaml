@@ -4,21 +4,21 @@ projects:
     subtitle: "Study of Anisotropic Antiferromagnets on a Triangular Lattice through Neural QuantumStates"
     thumbnail: "assets/projects/MasterThesis/masterthesis_teaser.png"
     # url: "projects/2016_network-ab-testing.html"
-    project_pdf: "/assets/projects/MasterThesis/Thesis.pdf"
+    project_pdf: "assets/projects/MasterThesis/Thesis.pdf"
     selected: y
 
   - title: "Semesterthesis"
     subtitle: "Numerical Investigation of the Upper Critical Field of a BCS Superconductor"
     thumbnail: "assets/projects/SC_Semesterproject/SC_Teaser.png"
-    project_pdf: "/assets/projects/SC_Semesterproject/SC_Report.pdf"
+    project_pdf: "assets/projects/SC_Semesterproject/SC_Report.pdf"
     selected: n
     
-    
+
   - title: "Script"
     subtitle: "Latex Summary of MMP1 course (not finished)"
     thumbnail: "assets/projects/MMP1_Script/trex.png"
     # project_pdf: "/assets/projects/MMP1_Script/MMP_Script.pdf"
-    project_pdf: "assets/projects/MMP1_Script/MMP_script.pdf"
+    project_pdf: "assets/projects/MMP1_Script/MMPScript.pdf"
     selected: n
     # url: "projects/2016_network-ab-testing.html"
 
