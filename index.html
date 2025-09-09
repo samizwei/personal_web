@@ -188,7 +188,7 @@ title: Home
 
     <div class="tab-pane" id="projects-all">
       
-      {% assign other_projects = site.data.projects.projects | where: "selected", "y" %}
+      {% assign other_projects = site.data.projects.projects | where: "selected", "n" %}
       {% for project in other_projects %}
         {% assign index_modulo = forloop.index0 | modulo:3 %}
         {% if index_modulo == 0 %}
@@ -208,6 +208,10 @@ title: Home
                   <b>{{ project.title }}</b> <br/>
                   {{ project.subtitle }}
                 </div>
+                <div class="paper-buttons">
+              {% if project.project_pdf %}
+              <a class="button" href="{{ project.project_pdf | prepend: site.baseurl }}" target="_blank">Project</a>
+            {% endif %}
 
             </div>
           </div>
