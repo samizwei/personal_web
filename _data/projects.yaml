@@ -5,13 +5,13 @@ projects:
     thumbnail: "assets/projects/MasterThesis/masterthesis_teaser.png"
     # url: "projects/2016_network-ab-testing.html"
     project_pdf: "/assets/projects/MasterThesis/Thesis.pdf"
-    selected: y
+    selected: "y"
 
   - title: "Semesterthesis"
     subtitle: "Numerical Investigation of the Upper Critical Field of a BCS Superconductor"
     thumbnail: "assets/projects/SC_Semesterproject/SC_Teaser.png"
     project_pdf: "/assets/projects/SC_Semesterproject/SC_Report.pdf"
-    selected: n
+    selected: "n"
     
 
   - title: "Script"
@@ -19,7 +19,7 @@ projects:
     thumbnail: "assets/projects/MMP1_Script/trex.png"
     # project_pdf: "/assets/projects/MMP1_Script/MMP_Script.pdf"
     project_pdf: "/assets/projects/MMP1_Script/MMPScript.pdf"
-    selected: n
+    selected: "n"
     # url: "projects/2016_network-ab-testing.html"
 
 
