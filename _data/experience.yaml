@@ -1,7 +1,15 @@
 experiences:
 
+- place: "Copenhagen"
+  time:  "April 2026 - now"
+  title: "PhD Student in Condensed Matter Theory with Morten H. Christensen"
+  # subtitle: ""
+  category: "work"
+
+
+
 - place: "Oerlikon ZH"
-  time:  "Sept 2025 - Present"
+  time:  "Sept 2025 - March 2026"
   title: "Internship as Pricing Actuary"
   subtitle: "Zurich Insurance"
   category: "work"
