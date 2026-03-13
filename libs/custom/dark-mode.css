@@ -1,0 +1,94 @@
+/* ========== DARK MODE ========== */
+
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+body.dark-mode a {
+  color: #7eb8f7;
+}
+
+body.dark-mode a:hover {
+  color: #add4ff;
+}
+
+/* Navbar */
+body.dark-mode .navbar-custom {
+  background-color: #111111;
+  border-bottom: 1px solid #333;
+}
+
+body.dark-mode .navbar-custom .nav li a {
+  color: #e0e0e0;
+}
+
+body.dark-mode .navbar-custom .navbar-brand {
+  color: #e0e0e0;
+}
+
+/* Sections */
+body.dark-mode .docs-section {
+  border-top-color: #333;
+}
+
+/* Buttons / tabs */
+body.dark-mode .button {
+  color: #e0e0e0;
+  border-color: #555;
+}
+
+body.dark-mode .button:hover,
+body.dark-mode .button.active {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Timeline */
+body.dark-mode .flag {
+  background: #2a2a2a;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+body.dark-mode .flag:after {
+  border-right-color: #2a2a2a;
+}
+
+body.dark-mode .direction-l .flag:after {
+  border-left-color: #2a2a2a;
+}
+
+body.dark-mode .time-wrapper .time {
+  background: #2a2a2a;
+  color: #aaa;
+}
+
+body.dark-mode ul.timeline:before {
+  background: #444;
+}
+
+body.dark-mode ul.timeline li:before {
+  border-color: #444;
+  background: #1a1a1a;
+}
+
+/* Dark mode toggle button */
+#dark-mode-toggle {
+  position: fixed;
+  top: 16px;
+  right: 20px;
+  z-index: 9999;
+  background: transparent;
+  border: 1.5px solid #aaa;
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+#dark-mode-toggle:hover {
+  background: rgba(128,128,128,0.15);
+}
