@@ -2,43 +2,35 @@
 layout: default
 title: Home
 ---
-
 <!-- ========== BIO ========== -->
 <div class="docs-section" id="bio">
   <h4>Bio</h4>
   <p>
-    Hi, I am a PhD student in the Condensed Matter Theory section at the Niels Bohr Institute working with Morten Holm Christensen. My research focuses on renormalization group approaches combined with group-theoretical modeling and quantum Monte Carlo simulations to elucidate the role of anisotropic electronic interactions in the interplay between magnetic and superconducting instabilities.
+Hi, I am a PhD student in the Condensed Matter Theory section at the Niels Bohr Institute working with Morten Holm Christensen. My research focuses on renormalization group approaches combined with group-theoretical modeling and quantum Monte Carlo simulations to elucidate the role of anisotropic electronic interactions in the interplay between magnetic and superconducting instabilities.<br>
+
+Prior to this, I obtained a Master’s degree in Physics, with research interests in condensed matter theory, computational physics, and machine learning. My work has centered on the study of correlated quantum systems using variational and numerical techniques, including Variational Monte Carlo (VMC), Neural Quantum States (NQS), and the Density Matrix Renormalization Group (DMRG), alongside analytical methods.<br>
+
+I completed my Master’s thesis under the supervision of Juan Carrasquilla, where I investigated a triangular quantum antiferromagnet using neural quantum states and variational Monte Carlo methods.<br>
+  <!-- Beyond academic research, I have experience in industry as an R&D intern at Sensirion AG, working on TC sensors as well as an actuarial intern at Zurich Insurance. -->
+  Beyond academic research, I have industry experience as an R&D intern at Sensirion AG, where I worked on thermal conductivity (TC) sensors, and as an actuarial intern at Zurich Insurance, contributing to data-driven analysis and modeling tasks.<br>
+  More broadly, I am fascinated by the intersection of mathematics, physics, and numerical methods, and by how modern computational and machine learning techniques can be applied not only to understand quantum many-body systems and materials, but also to address problems in fields such as finance and insurance.<br>
+
+  In my free time, I enjoy spending time in the mountains🏔️ hiking climbing🧗🏻‍♂️, and snowboarding🏂.
+  </p>
+  <!-- My work focuses on variational methods, including Variational Monte Carlo (VMC), Neural Quantum States (NQS), Density Matrix Renormalization Group (DMRG), and Density Functional Theory (DFT).
+  I conducted my master thesis under the supervision of Prof. Juan Carrasquilla investigating a triangular quantum antiferromagnet using neural quantum states and VMC.<br>
+  Besides academic research, I have experience in industry as an R&D intern at Sensirion AG, working on TC sensors as well as as an acturial intern at Zurich Insurance. -->
+
   </p>
 
-  <ul class="tab-nav">
-    <li><div class="button active" data-ref="#bio-research">Research</div></li>
-    <li><div class="button" data-ref="#bio-beyond">Beyond the Whiteboard</div></li>
-  </ul>
-
-  <div class="tab-content">
-
-    <div class="tab-pane active" id="bio-research">
-      <p>
-        Prior to my PhD, I obtained a Master's degree in Physics, with research interests in condensed matter theory, computational physics, and machine learning. My work has centered on the study of correlated quantum systems using variational and numerical techniques, including Variational Monte Carlo (VMC), Neural Quantum States (NQS), and the Density Matrix Renormalization Group (DMRG), alongside analytical methods.
-      </p>
-      <p>
-        I completed my Master's thesis under the supervision of Juan Carrasquilla, where I investigated a triangular quantum antiferromagnet using neural quantum states and variational Monte Carlo methods.
-      </p>
-      <p>
-        More broadly, I am fascinated by the intersection of mathematics, physics, and numerical methods, and by how modern computational and machine learning techniques can be applied not only to understand quantum many-body systems and materials, but also to address problems in fields such as finance and insurance.
-      </p>
-    </div>
-
-    <div class="tab-pane" id="bio-beyond">
-      <p>
-        Beyond academic research, I have industry experience as an R&D intern at Sensirion AG, where I worked on thermal conductivity (TC) sensors, and as an actuarial intern at Zurich Insurance, contributing to data-driven analysis and modeling tasks.
-      </p>
-      <p>
-        In my free time, I enjoy spending time in the mountains 🏔️ hiking, climbing 🧗🏻‍♂️, and snowboarding 🏂.
-      </p>
-    </div>
-
-  </div>
+  <p>
+  <!-- I'm an Assistant Professor in the Information School at the University of Washington.
+  Before joining UW, I was a Postdoc at Stanford University, mentored by <a href="https://web.stanford.edu/~jugander/" target="_blank">Johan Ugander</a>.
+  I received my Ph.D. from MIT in 2020 under the supervision of Deb Roy. 
+  Prior to coming to MIT, I spent one year in Paris and one year in Barcelona doing a M.Sc. in Data mining and Knowledge Management. 
+  I got my B.Sc. from Staffordshire University with First Class honors in Computer Science. 
+  Throughout my graduate studies, I spent several summers doing internships in industry, including Yahoo! Labs, Amazon, LinkedIn, and Facebook. -->
+  </p> 
 </div>
 
 <!--
@@ -71,11 +63,11 @@ title: Home
 <!-- <div class="docs-section" id="publications">
   <h4>Publications</h4>
 
-  <p>Most recent publications on <a href="{{ site.data.main_info.google_scholar }}" target="_blank">Google Scholar</a>.<br/>
+  <!-- <p>Most recent publications on <a href="{{ site.data.main_info.google_scholar }}" target="_blank">Google Scholar</a>.<br/>
   <sup>‡</sup> indicates equal contribution.
-  </p>
+  </p> -->
 
-  <ul class="tab-nav">
+  <!-- <ul class="tab-nav">
     <li><div class="button active" data-ref="#papers-selected">Selected</div></li>
     <li><div class="button" data-ref="#papers-all">All</div></li>
   </ul>
@@ -92,21 +84,27 @@ title: Home
             {% if paper.paper_pdf %}
               <a class="button" href="{{ paper.paper_pdf | prepend: site.baseurl }}" target="_blank">Paper</a>
             {% endif %}
+
             {% if paper.slides %}
               <a class="button" href="{{ paper.slides | prepend: site.baseurl }}" target="_blank">Slides</a>
             {% endif %}
+
             {% if paper.poster %}
               <a class="button" href="{{ paper.poster | prepend: site.baseurl }}" target="_blank">Poster</a>
             {% endif %}
+
             {% if paper.video %}
               <a class="button" href="{{ paper.video }}" target="_blank">Video</a>
             {% endif %}
+
             {% if paper.code %}
               <a class="button" href="{{ paper.code }}" target="_blank">Code</a>
             {% endif %}
+
             {% if paper.data %}
               <a class="button" href="{{ paper.data }}" target="_blank">Data</a>
             {% endif %}
+
           </div>
         </div>
       {% endfor %}
@@ -122,33 +120,40 @@ title: Home
             {% if paper.paper_pdf %}
               <a class="button" href="{{ paper.paper_pdf | prepend: site.baseurl }}" target="_blank">Paper</a>
             {% endif %}
+
             {% if paper.slides %}
               <a class="button" href="{{ paper.slides | prepend: site.baseurl }}" target="_blank">Slides</a>
             {% endif %}
+
             {% if paper.poster %}
               <a class="button" href="{{ paper.poster | prepend: site.baseurl }}" target="_blank">Poster</a>
             {% endif %}
+
             {% if paper.video %}
               <a class="button" href="{{ paper.video }}" target="_blank">Video</a>
             {% endif %}
+
             {% if paper.code %}
               <a class="button" href="{{ paper.code }}" target="_blank">Code</a>
             {% endif %}
+
             {% if paper.data %}
               <a class="button" href="{{ paper.data }}" target="_blank">Data</a>
             {% endif %}
+
           </div>
         </div>
       {% endfor %}
     </div>
   </div>
-</div> -->
+</div>  -->
 
 <!-- ========== PROJECTS ==========  -->
 <div class="docs-section" id="projects">
   <h4>Projects</h4>
 
   <ul class="tab-nav">
+
     <li><div class="button active" data-ref="#projects-selected">Selected</div></li>
     <li><div class="button" data-ref="#projects-all">All</div></li>
   </ul>
@@ -164,21 +169,25 @@ title: Home
 
           <div class="four columns">
             <div class="project-container">
+
                 <div class="project-image-container">
                   <a href="{{ project.url }}">
                     <img src="{{ project.thumbnail }}" class="u-max-full-width" />
                     <!-- <img src="{{ project.thumbnail }}" style="width:100%; height:200px; object-fit:cover; border-radius:6px;" /> -->
+
                   </a>
                 </div>
+
+
                 <div class="project-caption">
                   <b>{{ project.title }}</b> <br/>
                   {{ project.subtitle }}
                 </div>
                 <div class="paper-buttons">
-                  {% if project.project_pdf %}
-                    <a class="button" href="{{ project.project_pdf | prepend: site.baseurl }}" target="_blank">Project</a>
-                  {% endif %}
-                </div>
+              {% if project.project_pdf %}
+              <a class="button" href="{{ project.project_pdf | prepend: site.baseurl }}" target="_blank">Project</a>
+            {% endif %}
+
             </div>
           </div>
 
@@ -186,12 +195,13 @@ title: Home
           </div>
         {% endif %}
       {% endfor %}
-      {% if index_modulo == 1 %}
+      {% if index_modulo ==1 %}
       </div>
       {% endif %}
     </div>
 
     <div class="tab-pane" id="projects-all">
+      
       {% assign other_projects = site.data.projects.projects | where: "selected", "n" %}
       {% for project in other_projects %}
         {% assign index_modulo = forloop.index0 | modulo:2 %}
@@ -201,20 +211,22 @@ title: Home
 
           <div class="four columns">
             <div class="project-container">
+
                 <div class="project-image-container">
                   <a href="{{ project.url }}">
                     <img src="{{ project.thumbnail }}" class="u-max-full-width" />
                   </a>
                 </div>
+
                 <div class="project-caption">
                   <b>{{ project.title }}</b> <br/>
                   {{ project.subtitle }}
                 </div>
                 <div class="paper-buttons">
-                  {% if project.project_pdf %}
-                    <a class="button" href="{{ project.project_pdf | prepend: site.baseurl }}" target="_blank">Project</a>
-                  {% endif %}
-                </div>
+              {% if project.project_pdf %}
+              <a class="button" href="{{ project.project_pdf | prepend: site.baseurl }}" target="_blank">Project</a>
+            {% endif %}
+
             </div>
           </div>
 
@@ -281,4 +293,4 @@ title: Home
   You can find all the code needed to build your website in this <a href="https://github.com/msaveski/www_personal" target="_blank">GitHub repo</a>.
   Feel free to use it. <br/>
 
-</div>
+</div>  
