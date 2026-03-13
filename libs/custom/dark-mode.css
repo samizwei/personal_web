@@ -73,22 +73,23 @@ body.dark-mode ul.timeline li:before {
   background: #1a1a1a;
 }
 
-/* Dark mode toggle button */
 #dark-mode-toggle {
-  position: fixed;
-  top: 16px;
-  right: 20px;
-  z-index: 9999;
-  background: transparent;
+  background: none;
   border: 1.5px solid #aaa;
   border-radius: 20px;
-  padding: 4px 12px;
-  font-size: 13px;
+  padding: 2px 10px;
   cursor: pointer;
-  color: inherit;
-  transition: all 0.2s ease;
+  font-size: 16px;
+  color: #222;
+  vertical-align: middle;
+  margin-left: 10px;
 }
 
 #dark-mode-toggle:hover {
   background: rgba(128,128,128,0.15);
+}
+
+body.dark-mode #dark-mode-toggle {
+  color: #e0e0e0;
+  border-color: #888;
 }
