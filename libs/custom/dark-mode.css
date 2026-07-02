@@ -14,22 +14,37 @@ body.dark-mode a:hover {
 }
 
 /* Navbar */
-body.dark-mode .navbar-custom {
-  background-color: #111111;
+body.dark-mode .navbar {
+  background: #111111;
+  border-top: 1px solid #333;
   border-bottom: 1px solid #333;
 }
 
-body.dark-mode .navbar-custom .nav li a {
+body.dark-mode .navbar-link {
   color: #e0e0e0;
 }
 
-body.dark-mode .navbar-custom .navbar-brand {
-  color: #e0e0e0;
+body.dark-mode .navbar-link.active {
+  color: #7eb8f7;
 }
 
 /* Sections */
 body.dark-mode .docs-section {
   border-top-color: #333;
+}
+
+/* Footer & subtitles (low-opacity black text is unreadable on dark bg) */
+body.dark-mode .footer {
+  color: rgba(224, 224, 224, 0.6);
+  border-top-color: #333;
+}
+
+body.dark-mode .title-subtitle h5 {
+  color: rgba(224, 224, 224, 0.7);
+}
+
+body.dark-mode .project-image-container {
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Buttons / tabs */
