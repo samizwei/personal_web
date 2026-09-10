@@ -6,8 +6,6 @@ experiences:
   # subtitle: ""
   category: "work"
 
-
-
 - place: "Oerlikon ZH"
   time:  "Sept 2025 - March 2026"
   title: "Internship as Pricing Actuary"
@@ -25,16 +23,16 @@ experiences:
   title: "Exchange Semester at UCPH"
   category: "school"
 
-- place: " Stäfa ZH"
+- place: "Stäfa ZH"
   time:  "Mar 2023 - Sept 2023"
-  title: "Internship in theoretical Phyiscs"
+  title: "Internship in theoretical Physics"
   subtitle: "Sensirion AG"
   category: "work"
 
 - place: "ETH Zurich"
   time: "2019 - 2022"
   title: "Bachelor of Science"
-  subtitle: "Phyiscs"
+  subtitle: "Physics"
   category: "school"
 
 # - place: "Military Service"
