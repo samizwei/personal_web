@@ -192,7 +192,7 @@ h4 {
     border-bottom-color: #33C3F0; }
 }
 /*  ================ Ising simulation (header background)  ================ */
-.header {
+.ising-box {
   border-radius: 6px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08); }
 .ising-frame {
@@ -217,9 +217,10 @@ h4 {
   color: #222;
   padding: 2rem;
   box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(0, 0, 0, 0.18);
   border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px); }
 .header-content a,
@@ -250,6 +251,12 @@ h4 {
   width: 100%;
   margin: 0;
   accent-color: #f3b35e; }
+.ising-caption {
+  margin: 1rem 0 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #777;
+  text-align: center; }
 @media (max-width: 550px) {
   .ising-frame {
     padding: 2rem 1.5rem; }
