@@ -77,8 +77,9 @@
   <div class="container">
 
     <section class="header">
+      <div class="ising-frame">
       <!-- J1-J2 Ising model Monte Carlo simulation as header background -->
-      <iframe id="ising" src="{{ "/assets/background/ising.html?v=3" | prepend: site.baseurl }}" title="J1–J2 Ising model simulation"></iframe>
+      <iframe id="ising" src="{{ "/assets/background/ising.html?v=4" | prepend: site.baseurl }}" title="J1–J2 Ising model simulation"></iframe>
       <div class="row header-content">
         <div class="three columns">
           <a href="{{ site.baseurl }}/"><img class="u-max-full-width" src='{{ site.baseurl }}{{ site.data.main_info.profile_pic }}'></a>
@@ -110,6 +111,15 @@
               </span> -->
             </p>
         </div>
+      </div>
+      </div>
+
+      <!-- Controls for the simulation, sent to the iframe via postMessage -->
+      <div class="ising-controls">
+        <label><span>Temperature T / J₁ <b id="ising-T-val">0.80</b></span>
+          <input type="range" id="ising-T" min="0.05" max="4" step="0.01" value="0.8"></label>
+        <label><span>Interaction J₂ / J₁ <b id="ising-r-val">0.30</b></span>
+          <input type="range" id="ising-r" min="0" max="1.5" step="0.01" value="0.3"></label>
       </div>
     </section>
 
@@ -168,6 +178,23 @@
   <!-- do not remove -->
   <span id="62cd7b7da1aff3196fdc26b60e396df9"></span>
  
+  <!-- Ising simulation controls -->
+  <script>
+    (function () {
+      const frame = document.getElementById('ising');
+      const Tin = document.getElementById('ising-T'), rin = document.getElementById('ising-r');
+      const Tval = document.getElementById('ising-T-val'), rval = document.getElementById('ising-r-val');
+      function send() {
+        Tval.textContent = (+Tin.value).toFixed(2);
+        rval.textContent = (+rin.value).toFixed(2);
+        frame.contentWindow.postMessage({ T: +Tin.value, r: +rin.value }, '*');
+      }
+      Tin.addEventListener('input', send);
+      rin.addEventListener('input', send);
+      frame.addEventListener('load', send);
+    })();
+  </script>
+
   <!-- Dark Mode Script -->
   <script>
     function toggleDarkMode() {

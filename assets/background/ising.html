@@ -16,8 +16,8 @@
   label b { color: #e7eaf3; font-weight: 600; font-variant-numeric: tabular-nums; }
   input[type=range] { width: 100%; margin: 0; accent-color: #f3b35e; }
   @media (max-width: 640px) { #panel { top: auto; bottom: 10px; left: 10px; right: 10px; width: auto; } }
-  /* embedded in the website header: controls in the bottom-right corner, below the text */
-  .embedded #panel { top: auto; bottom: 12px; right: 12px; }
+  /* embedded in the website header: the page provides the controls */
+  .embedded #panel { display: none; }
 </style>
 </head>
 <body>
@@ -107,6 +107,13 @@ const Tval = document.getElementById('Tval'), rval = document.getElementById('rv
 function labels() { Tval.textContent = T.toFixed(2); rval.textContent = r.toFixed(2); }
 Tin.addEventListener('input', () => { T = +Tin.value; labels(); });
 rin.addEventListener('input', () => { r = +rin.value; labels(); });
+// parameters sent from the website's controls when embedded
+addEventListener('message', (e) => {
+  if (e.source !== window.parent || !e.data) return;
+  if (typeof e.data.T === 'number') T = Tin.value = e.data.T;
+  if (typeof e.data.r === 'number') r = rin.value = e.data.r;
+  labels();
+});
 
 let timer;
 addEventListener('resize', () => { clearTimeout(timer); timer = setTimeout(build, 150); });

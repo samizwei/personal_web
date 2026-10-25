@@ -192,11 +192,13 @@ h4 {
     border-bottom-color: #33C3F0; }
 }
 /*  ================ Ising simulation (header background)  ================ */
-.header {
+.ising-frame {
   position: relative;
   overflow: hidden;
-  border-radius: 6px;
-  padding: 3rem 2.5rem 13rem 2.5rem; }
+  min-height: 460px;
+  padding: 4rem 3rem;
+  box-sizing: border-box;
+  border-radius: 6px 6px 0 0; }
 #ising {
   position: absolute;
   inset: 0;
@@ -204,7 +206,7 @@ h4 {
   height: 100%;
   border: 0;
   z-index: 0; }
-/* clicks pass through to the simulation's sliders, except on links and buttons */
+/* clicks pass through to the simulation, except on links and buttons */
 .header-content {
   position: relative;
   z-index: 1;
@@ -219,3 +221,35 @@ h4 {
   color: #fff;
   border-color: rgba(255, 255, 255, 0.7);
   text-shadow: none; }
+.ising-controls {
+  display: flex;
+  gap: 3rem;
+  padding: 1.2rem 3rem;
+  background: #0d1326;
+  color: #e7eaf3;
+  border-radius: 0 0 6px 6px; }
+.ising-controls label {
+  flex: 1;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 400; }
+.ising-controls label span {
+  display: flex;
+  justify-content: space-between;
+  color: #98a2ba;
+  margin-bottom: 4px; }
+.ising-controls label b {
+  color: #e7eaf3;
+  font-variant-numeric: tabular-nums; }
+.ising-controls input[type=range] {
+  width: 100%;
+  margin: 0;
+  accent-color: #f3b35e; }
+@media (max-width: 550px) {
+  .ising-frame {
+    padding: 2rem 1.5rem; }
+  .ising-controls {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.2rem 1.5rem; }
+}
