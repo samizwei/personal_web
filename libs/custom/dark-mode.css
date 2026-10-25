@@ -108,11 +108,3 @@ body.dark-mode #dark-mode-toggle {
   color: #e0e0e0;
   border-color: #888;
 }
-/* Content panel over the animated background */
-body.dark-mode .container {
-  background: rgba(26, 26, 26, 0.94);
-}
-
-body.dark-mode .navbar > .container {
-  background: transparent;
-}

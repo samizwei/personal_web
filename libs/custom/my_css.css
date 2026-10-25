@@ -191,16 +191,11 @@ h4 {
   .popover-item:first-child .popover-link:hover:after {
     border-bottom-color: #33C3F0; }
 }
-/*  ================ Animated background  ================ */
-#background {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
+/*  ================ Ising simulation  ================ */
+#ising {
+  display: block;
+  width: 100%;
+  height: 360px;
+  margin: 0 auto 4rem auto;
   border: 0;
-  z-index: -1;
-  pointer-events: none; }
-.container {
-  background: rgba(255, 255, 255, 0.94); }
-.navbar > .container {
-  background: transparent; }
+  border-radius: 6px; }
