@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>J1–J2 Ising Model</title>
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #0a0f1e; color: #e7eaf3;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  canvas { position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; }
+  #panel { position: fixed; top: 16px; right: 16px; width: 260px; padding: 12px 16px;
+    background: rgba(13, 19, 38, 0.82); border: 1px solid rgba(255, 255, 255, 0.09); border-radius: 12px;
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); font-size: 13px; }
+  label { display: block; margin: 6px 0; }
+  label span { display: flex; justify-content: space-between; color: #98a2ba; margin-bottom: 4px; }
+  label b { color: #e7eaf3; font-weight: 600; font-variant-numeric: tabular-nums; }
+  input[type=range] { width: 100%; margin: 0; accent-color: #f3b35e; }
+  @media (max-width: 640px) { #panel { top: auto; bottom: 10px; left: 10px; right: 10px; width: auto; } }
+  /* embedded as the website background: no controls */
+  .embedded #panel { display: none; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+
+<div id="panel">
+  <label><span>Temperature T / J₁ <b id="Tval"></b></span>
+    <input type="range" id="T" min="0.05" max="4" step="0.01" value="0.8"></label>
+  <label><span>Interaction J₂ / J₁ <b id="rval"></b></span>
+    <input type="range" id="r" min="0" max="1.5" step="0.01" value="0.3"></label>
+</div>
+
+<script>
+(() => {
+'use strict';
+if (window.self !== window.top) document.body.classList.add('embedded');
+
+// H = J1 Σ_nn s_i s_j + J2 Σ_nnn s_i s_j, both antiferromagnetic, J1 = 1, r = J2/J1.
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+const A = 26;          // lattice spacing in px
+const SWEEPS = 0.6;    // Monte Carlo sweeps per frame
+let W, H, Lx, Ly, N, x, y, nb, s;
+let T = 0.8, r = 0.3;
+
+function build() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  W = innerWidth; H = innerHeight;
+  canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  Lx = Math.ceil(W / A) + 2; Ly = Math.ceil(H / A) + 2;
+  if (Lx & 1) Lx++; if (Ly & 1) Ly++;            // even sizes fit Néel and stripe states
+  N = Lx * Ly;
+  x = new Float32Array(N); y = new Float32Array(N);
+  nb = new Int32Array(8 * N);                    // 0–3 nearest, 4–7 diagonal neighbours
+  s = new Int8Array(N);
+  for (let j = 0; j < Ly; j++) for (let i = 0; i < Lx; i++) {
+    const k = j * Lx + i, ip = (i + 1) % Lx, im = (i - 1 + Lx) % Lx, jp = (j + 1) % Ly, jm = (j - 1 + Ly) % Ly, b = 8 * k;
+    x[k] = (i - 0.5) * A; y[k] = (j - 0.5) * A;
+    nb[b] = j * Lx + ip; nb[b + 1] = j * Lx + im; nb[b + 2] = jp * Lx + i; nb[b + 3] = jm * Lx + i;
+    nb[b + 4] = jp * Lx + ip; nb[b + 5] = jp * Lx + im; nb[b + 6] = jm * Lx + ip; nb[b + 7] = jm * Lx + im;
+    s[k] = Math.random() < 0.5 ? 1 : -1;
+  }
+}
+
+// single-spin-flip Metropolis
+function step() {
+  const n = Math.round(SWEEPS * N);
+  for (let u = 0; u < n; u++) {
+    const k = (Math.random() * N) | 0, b = 8 * k;
+    const s1 = s[nb[b]] + s[nb[b + 1]] + s[nb[b + 2]] + s[nb[b + 3]];
+    const s2 = s[nb[b + 4]] + s[nb[b + 5]] + s[nb[b + 6]] + s[nb[b + 7]];
+    const dE = -2 * s[k] * (s1 + r * s2);
+    if (dE <= 0 || Math.random() < Math.exp(-dE / T)) s[k] = -s[k];
+  }
+}
+
+function draw() {
+  ctx.fillStyle = '#0a0f1e'; ctx.fillRect(0, 0, W, H);
+
+  // square lattice
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.28)'; ctx.lineWidth = 1;
+  ctx.beginPath();
+  for (let i = 0; i < Lx; i++) { const X = (i - 0.5) * A; ctx.moveTo(X, 0); ctx.lineTo(X, H); }
+  for (let j = 0; j < Ly; j++) { const Y = (j - 0.5) * A; ctx.moveTo(0, Y); ctx.lineTo(W, Y); }
+  ctx.stroke();
+
+  // spins as arrows
+  const L = A * 0.32, hw = A * 0.15, hl = A * 0.17;
+  const up = new Path2D(), dn = new Path2D();
+  for (let k = 0; k < N; k++) {
+    const X = x[k], Y = y[k];
+    if (s[k] > 0) {          // spin up: arrow pointing right
+      up.moveTo(X - L, Y); up.lineTo(X + L, Y);
+      up.moveTo(X + L - hl, Y - hw); up.lineTo(X + L, Y); up.lineTo(X + L - hl, Y + hw);
+    } else {                 // spin down: arrow pointing left
+      dn.moveTo(X + L, Y); dn.lineTo(X - L, Y);
+      dn.moveTo(X - L + hl, Y - hw); dn.lineTo(X - L, Y); dn.lineTo(X - L + hl, Y + hw);
+    }
+  }
+  ctx.lineWidth = 2; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  ctx.strokeStyle = '#ff4d4d'; ctx.stroke(up);   // red
+  ctx.strokeStyle = '#3d8bff'; ctx.stroke(dn);   // blue
+}
+
+const Tin = document.getElementById('T'), rin = document.getElementById('r');
+const Tval = document.getElementById('Tval'), rval = document.getElementById('rval');
+function labels() { Tval.textContent = T.toFixed(2); rval.textContent = r.toFixed(2); }
+Tin.addEventListener('input', () => { T = +Tin.value; labels(); });
+rin.addEventListener('input', () => { r = +rin.value; labels(); });
+
+let timer;
+addEventListener('resize', () => { clearTimeout(timer); timer = setTimeout(build, 150); });
+
+function loop() { step(); draw(); requestAnimationFrame(loop); }
+build(); labels(); requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

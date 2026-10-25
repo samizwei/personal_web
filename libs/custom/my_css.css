@@ -191,3 +191,16 @@ h4 {
   .popover-item:first-child .popover-link:hover:after {
     border-bottom-color: #33C3F0; }
 }
+/*  ================ Animated background  ================ */
+#background {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  border: 0;
+  z-index: -1;
+  pointer-events: none; }
+.container {
+  background: rgba(255, 255, 255, 0.94); }
+.navbar > .container {
+  background: transparent; }
