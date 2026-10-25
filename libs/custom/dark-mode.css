@@ -108,3 +108,27 @@ body.dark-mode #dark-mode-toggle {
   color: #e0e0e0;
   border-color: #888;
 }
+
+/* Ising simulation header */
+body.dark-mode .header {
+  box-shadow: none;
+}
+
+body.dark-mode .header-content {
+  color: #fff;
+  background: rgba(13, 19, 38, 0.85);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+body.dark-mode .ising-controls {
+  background: #0d1326;
+  color: #e7eaf3;
+}
+
+body.dark-mode .ising-controls label span {
+  color: #98a2ba;
+}
+
+body.dark-mode .ising-controls label b {
+  color: #e7eaf3;
+}

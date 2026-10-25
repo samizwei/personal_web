@@ -33,7 +33,8 @@
 <script>
 (() => {
 'use strict';
-if (window.self !== window.top) document.body.classList.add('embedded');
+const embedded = window.self !== window.top;
+if (embedded) document.body.classList.add('embedded');
 // H = J1 Σ_nn s_i s_j + J2 Σ_nnn s_i s_j, both antiferromagnetic, J1 = 1, r = J2/J1.
 const canvas = document.getElementById('c');
 const ctx = canvas.getContext('2d');
@@ -41,6 +42,15 @@ const A = 26;          // lattice spacing in px
 const SWEEPS = 0.6;    // Monte Carlo sweeps per frame
 let W, H, Lx, Ly, N, x, y, nb, s;
 let T = 0.8, r = 0.3;
+let bg, grid;
+
+// colour theme: light (white background) or dark; the website switches it with its night button
+function setTheme(dark) {
+  bg = dark ? '#0a0f1e' : '#ffffff';
+  grid = dark ? 'rgba(255, 255, 255, 0.28)' : 'rgba(0, 0, 0, 0.15)';
+  document.body.style.background = bg;
+}
+setTheme(!embedded);
 
 function build() {
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -75,10 +85,10 @@ function step() {
 }
 
 function draw() {
-  ctx.fillStyle = '#0a0f1e'; ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
 
   // square lattice
-  ctx.strokeStyle = 'rgba(255, 255, 255, 0.28)'; ctx.lineWidth = 1;
+  ctx.strokeStyle = grid; ctx.lineWidth = 1;
   ctx.beginPath();
   for (let i = 0; i < Lx; i++) { const X = (i - 0.5) * A; ctx.moveTo(X, 0); ctx.lineTo(X, H); }
   for (let j = 0; j < Ly; j++) { const Y = (j - 0.5) * A; ctx.moveTo(0, Y); ctx.lineTo(W, Y); }
@@ -112,6 +122,7 @@ addEventListener('message', (e) => {
   if (e.source !== window.parent || !e.data) return;
   if (typeof e.data.T === 'number') T = Tin.value = e.data.T;
   if (typeof e.data.r === 'number') r = rin.value = e.data.r;
+  if (typeof e.data.dark === 'boolean') setTheme(e.data.dark);
   labels();
 });
 

@@ -79,7 +79,7 @@
     <section class="header">
       <div class="ising-frame">
       <!-- J1-J2 Ising model Monte Carlo simulation as header background -->
-      <iframe id="ising" src="{{ "/assets/background/ising.html?v=4" | prepend: site.baseurl }}" title="J1–J2 Ising model simulation"></iframe>
+      <iframe id="ising" src="{{ "/assets/background/ising.html?v=5" | prepend: site.baseurl }}" title="J1–J2 Ising model simulation"></iframe>
       <div class="row header-content">
         <div class="three columns">
           <a href="{{ site.baseurl }}/"><img class="u-max-full-width" src='{{ site.baseurl }}{{ site.data.main_info.profile_pic }}'></a>
@@ -187,11 +187,13 @@
       function send() {
         Tval.textContent = (+Tin.value).toFixed(2);
         rval.textContent = (+rin.value).toFixed(2);
-        frame.contentWindow.postMessage({ T: +Tin.value, r: +rin.value }, '*');
+        const dark = document.body.classList.contains('dark-mode');
+        frame.contentWindow.postMessage({ T: +Tin.value, r: +rin.value, dark: dark }, '*');
       }
       Tin.addEventListener('input', send);
       rin.addEventListener('input', send);
       frame.addEventListener('load', send);
+      window.updateIsing = send;
     })();
   </script>
 
@@ -204,6 +206,7 @@
       const isDark = body.classList.contains('dark-mode');
       btn.textContent = isDark ? '☀️' : '🌙';
       localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+      if (window.updateIsing) window.updateIsing();
     }
  
     // Apply saved preference on page load
