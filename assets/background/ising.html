@@ -16,6 +16,8 @@
   label b { color: #e7eaf3; font-weight: 600; font-variant-numeric: tabular-nums; }
   input[type=range] { width: 100%; margin: 0; accent-color: #f3b35e; }
   @media (max-width: 640px) { #panel { top: auto; bottom: 10px; left: 10px; right: 10px; width: auto; } }
+  /* embedded in the website header: controls in the bottom-right corner, below the text */
+  .embedded #panel { top: auto; bottom: 12px; right: 12px; }
 </style>
 </head>
 <body>
@@ -31,6 +33,7 @@
 <script>
 (() => {
 'use strict';
+if (window.self !== window.top) document.body.classList.add('embedded');
 // H = J1 Σ_nn s_i s_j + J2 Σ_nnn s_i s_j, both antiferromagnetic, J1 = 1, r = J2/J1.
 const canvas = document.getElementById('c');
 const ctx = canvas.getContext('2d');

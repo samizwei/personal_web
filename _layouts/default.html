@@ -77,7 +77,9 @@
   <div class="container">
 
     <section class="header">
-      <div class="row">
+      <!-- J1-J2 Ising model Monte Carlo simulation as header background -->
+      <iframe id="ising" src="{{ "/assets/background/ising.html?v=3" | prepend: site.baseurl }}" title="J1–J2 Ising model simulation"></iframe>
+      <div class="row header-content">
         <div class="three columns">
           <a href="{{ site.baseurl }}/"><img class="u-max-full-width" src='{{ site.baseurl }}{{ site.data.main_info.profile_pic }}'></a>
         </div>
@@ -110,9 +112,6 @@
         </div>
       </div>
     </section>
-
-    <!-- J1-J2 Ising model Monte Carlo simulation -->
-    <iframe id="ising" src="{{ "/assets/background/ising.html" | prepend: site.baseurl }}" title="J1–J2 Ising model simulation"></iframe>
 
     <!-- Here we define the navigation bar -->
     <div class="navbar-spacer"></div>
