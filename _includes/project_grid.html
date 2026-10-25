@@ -1,0 +1,31 @@
+<!-- Grid of project cards, three per row -->
+{% for project in include.projects %}
+  {% assign index_modulo = forloop.index0 | modulo: 3 %}
+  {% if index_modulo == 0 %}
+    <div class="row">
+  {% endif %}
+
+      <div class="four columns">
+        <div class="project-container">
+          <div class="project-image-container">
+            {% if project.url %}<a href="{{ project.url }}">{% elsif project.project_pdf %}<a href="{{ project.project_pdf | prepend: site.baseurl }}" target="_blank">{% endif %}
+              <img src="{{ project.thumbnail }}" class="u-max-full-width" />
+            {% if project.url or project.project_pdf %}</a>{% endif %}
+          </div>
+
+          <div class="project-caption">
+            <b>{{ project.title }}</b> <br/>
+            {{ project.subtitle }}
+          </div>
+          <div class="paper-buttons">
+            {% if project.project_pdf %}
+              <a class="button" href="{{ project.project_pdf | prepend: site.baseurl }}" target="_blank">Project</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+  {% if index_modulo == 2 or forloop.last %}
+    </div>
+  {% endif %}
+{% endfor %}

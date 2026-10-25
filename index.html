@@ -37,121 +37,33 @@ title: Home
   <h4>Publications & Projects</h4>
 
   <ul class="tab-nav">
-    <li><div class="button active" data-ref="#projects-selected">Selected</div></li>
-    <li><div class="button" data-ref="#projects-all">All</div></li>
+    <li><div class="button active" data-ref="#selected">Selected</div></li>
     <li><div class="button" data-ref="#publications">Publications</div></li>
+    <li><div class="button" data-ref="#projects-all">Projects</div></li>
   </ul>
 
   <div class="tab-content">
-    <div class="tab-pane active" id="projects-selected">
+    <!-- Selected: publications and projects marked with selected: "y" -->
+    <div class="tab-pane active" id="selected">
+      {% assign selected_papers = site.data.publications.papers | where: "selected", "y" %}
+      {% for paper in selected_papers %}
+        {% include paper.html paper=paper %}
+      {% endfor %}
+
       {% assign selected_projects = site.data.projects.projects | where: "selected", "y" %}
-      {% for project in selected_projects %}
-        {% assign index_modulo = forloop.index0 | modulo:2 %}
-        {% if index_modulo == 0 %}
-          <div class="row">
-        {% endif %}
-
-          <div class="four columns">
-            <div class="project-container">
-
-                <div class="project-image-container">
-                  <a href="{{ project.url }}">
-                    <img src="{{ project.thumbnail }}" class="u-max-full-width" />
-                    <!-- <img src="{{ project.thumbnail }}" style="width:100%; height:200px; object-fit:cover; border-radius:6px;" /> -->
-
-                  </a>
-                </div>
-
-
-                <div class="project-caption">
-                  <b>{{ project.title }}</b> <br/>
-                  {{ project.subtitle }}
-                </div>
-                <div class="paper-buttons">
-              {% if project.project_pdf %}
-              <a class="button" href="{{ project.project_pdf | prepend: site.baseurl }}" target="_blank">Project</a>
-            {% endif %}
-
-            </div>
-          </div>
-
-        {% if index_modulo == 0 %}
-          </div>
-        {% endif %}
-      {% endfor %}
-      {% if index_modulo ==1 %}
-      </div>
-      {% endif %}
+      {% include project_grid.html projects=selected_projects %}
     </div>
 
-    <div class="tab-pane" id="projects-all">
-      
-      {% assign other_projects = site.data.projects.projects | where: "selected", "n" %}
-      {% for project in other_projects %}
-        {% assign index_modulo = forloop.index0 | modulo:2 %}
-        {% if index_modulo == 0 %}
-          <div class="row">
-        {% endif %}
-
-          <div class="four columns">
-            <div class="project-container">
-
-                <div class="project-image-container">
-                  <a href="{{ project.url }}">
-                    <img src="{{ project.thumbnail }}" class="u-max-full-width" />
-                  </a>
-                </div>
-
-                <div class="project-caption">
-                  <b>{{ project.title }}</b> <br/>
-                  {{ project.subtitle }}
-                </div>
-                <div class="paper-buttons">
-              {% if project.project_pdf %}
-              <a class="button" href="{{ project.project_pdf | prepend: site.baseurl }}" target="_blank">Project</a>
-            {% endif %}
-
-            </div>
-          </div>
-
-        {% if index_modulo == 0 %}
-          </div>
-        {% endif %}
-      {% endfor %}
-      {% if index_modulo == 1 %}
-      </div>
-      {% endif %}
-    </div>
-
+    <!-- Publications: all publications -->
     <div class="tab-pane" id="publications">
       {% for paper in site.data.publications.papers %}
-        <div class="paper">
-          <p class="title"><b>{{ paper.title }}</b></p>
-          <p>{{ paper.authors }}</p>
-          <p><i>{{ paper.venue }}</i></p>
-          <div class="paper-buttons">
-            {% if paper.paper_pdf and paper.paper_pdf != "" %}
-              <a class="button" href="{{ paper.paper_pdf | prepend: site.baseurl }}" target="_blank">Paper</a>
-            {% endif %}
-
-            {% if paper.arxiv %}
-              <a class="button" href="{{ paper.arxiv }}" target="_blank">arXiv</a>
-            {% endif %}
-
-            {% if paper.slides %}
-              <a class="button" href="{{ paper.slides | prepend: site.baseurl }}" target="_blank">Slides</a>
-            {% endif %}
-
-            {% if paper.poster %}
-              <a class="button" href="{{ paper.poster | prepend: site.baseurl }}" target="_blank">Poster</a>
-            {% endif %}
-
-            {% if paper.code %}
-              <a class="button" href="{{ paper.code }}" target="_blank">Code</a>
-            {% endif %}
-          </div>
-        </div>
+        {% include paper.html paper=paper %}
       {% endfor %}
+    </div>
+
+    <!-- Projects: all projects -->
+    <div class="tab-pane" id="projects-all">
+      {% include project_grid.html projects=site.data.projects.projects %}
     </div>
   </div>
 
