@@ -41,11 +41,11 @@ experiences:
 #   subtitle: "Swiss Armed Forces"
 #   category: "work"
 
-- place: "Kantonsschule Wettingen"
-  time: "2015 - 2018"
-  title: "Swiss Matura"
-  subtitle: "Focus on Mathematics and Physics"
-  category: "school"
+# - place: "Kantonsschule Wettingen"
+#   time: "2015 - 2018"
+#   title: "Swiss Matura"
+#   subtitle: "Focus on Mathematics and Physics"
+#   category: "school"
 
 # - place: "University of Washington"
 #   time: "2023 - now"
